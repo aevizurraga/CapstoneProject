@@ -10,7 +10,7 @@ svg3.append('rect')
   .attr('width', width2)
   .attr('height', height2)
   .attr('stroke', 'whitesmoke')
-  .attr('fill', '#004483');
+  .attr('fill', '#cc5000');
 
 svg3.append('rect')
   .attr('x', 0)
@@ -18,6 +18,6 @@ svg3.append('rect')
   .attr('width', width2 / 3)
   .attr('height', height2 / 3)
   .attr("transform", `translate(${width2 / 3}, ${height2 / 3})`)
-  .attr('stroke', 'whitesmoke')
+  .attr('stroke', 'rgb(43, 43, 43)')
   .attr('fill', '#bc6329');
 

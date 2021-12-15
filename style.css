@@ -4,11 +4,10 @@
 }
 
 body {
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(38, 38, 38);
     color: whitesmoke;
     height: 100vh;
     overflow: hidden;
-    font-family: 'Oswald', sans-serif;
 }
 
 .container {
@@ -114,32 +113,32 @@ h5 {
     ;
 }
 
-.chimbotemap-title {
-    grid-area: title2;
+.chimbotePicture {
+    grid-area: picture;
     place-self: center;
 }
 .chimbotemap {
     grid-area: map2;
     place-self: center;
 }
-.chimbote_desc{
-    grid-area: chimbote_desc;
+.chimboteDesc{
+    grid-area: chimboteDesc;
     place-self: center;
 }
 .Chimbote_Map {
     display: grid;
-    grid-template-columns: 5% 35% 55% 5%;
-    grid-template-rows: 5% 5%  85% 5%;
+    grid-template-columns: 5% 35% 5% 50% 5%;
+    grid-template-rows: 5% 50% 40% 5%;
     grid-template-areas: 
-    " . . . . "
-    " . title2 map2  . "
-    " .  chimbote_desc map2  . "
-    " . . . ."
+    " . . . . . "
+    " . chimboteDesc . map2  . "
+    " . chimboteDesc . map2  . "
+    " . . . . ."
     ;
 }
 
-.fishmealmap-title {
-    grid-area: title1;
+.barChartExports {
+    grid-area: barChartExports;
     place-self: center;
 }
 .fishmeal_map {
@@ -153,36 +152,74 @@ h5 {
 }
 .Production_Map {
     display: grid;
-    grid-template-columns: 5% 70% 20% 5%;
-    grid-template-rows: 5% 5%  85% 5%;
+    grid-template-columns: 5% 50% 5% 35% 5%;
+    grid-template-rows: 5% 45% 5% 40% 5%;
     grid-template-areas: 
-    " . . . . "
-    " . map3 title1 . "
-    " . map3 fishmeal_desc . "
-    " . . . ."
+    " . . . . . "
+    " . map3 . barChartExports . "
+    " . map3 . . . "
+    " . map3 . fishmeal_desc ."
+    " . . . . . "
     ;
 }
 
+
 /* Exports Leafelt Map */
-.mapExports {
-    grid-area: map4;
-    place-self: center;
-    background-image: rgb(43, 43, 43);
+
+button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: rgb(38, 38, 38);
+    color: whitesmoke;
+    opacity: 1;
+    text-align: center;
+    font-family: 'Nunito', sans-serif; 
+    line-height: 1.5;
+    font-size: .9rem;
+    color: whitesmoke;
+  }
+
+  button:not(.no-hover):hover {
+      background-color: rgb(38, 38, 38)
+  }
+
+.gloss2 {
+    grid-area: gloss2;
+    text-align: justify;
+    font-size: .9rem;
+    color: whitesmoke;
+    font-family: 'Nunito', sans-serif; 
+  }
+
+.map {
+    grid-area: map;
 }
-.exportDesc{
-    grid-area: exportDesc;
+.button {
+    grid-area: button;
     place-self: center;
+  }
+.info{
+    grid-area: info;
+    font-size: .9rem;
+    color: whitesmoke;
+    font-family: 'Nunito', sans-serif; 
+
 }
-.exportMap{
+.second-page{
+    
     display: grid;
     height: 100vh;
-    width: 98vw;
-    grid-template-columns: 4% 68% 4% 4% 16% 4%;
-    grid-template-rows: 5% 90% 5%;
+    width: 100%;
+    grid-template-columns: 5% 15% 5% 25% 45% 5%;
+    grid-template-rows: 5% 5% 50% 10% 25% 5%;
     grid-template-areas: 
-    " . . . . . . "
-    " . map4 . . exportDesc . "
-    " . . . . . . ";
+    " button button button button .   . "
+    " button button button button .   ."
+    " .      info   .      map    map . "
+    " .      info   .      map    map ."
+    " .      gloss2      .      map      map   . "
+    " .      .      .      .      .   . ";
   }
 
 .leaflet-container {
@@ -259,6 +296,30 @@ h5 {
         " . desc . water_circle ."
         " . . . . ."
         ;
+}
+
+/*Wildlife Impact*/
+.wildlifeWriting {
+    grid-area: wildlifeWriting;
+
+}
+
+.wildlifeImage {
+    grid-area: wildlifeImage;
+    place-self: center;
+}
+
+.wildlife {
+    display: grid;
+    grid-template-columns: 5% 70% 5% 15% 5%;
+    grid-template-rows: 5% 65% 5% 20% 5%;
+    grid-template-areas: 
+    " . .               .               .               . "
+    " . wildlifeWriting wildlifeWriting wildlifeWriting . "
+    " . wildlifeWriting wildlifeWriting wildlifeWriting . "
+    " . .               .               .               . "
+    " . .               .               .               . "
+    ;
 }
 
 /* Employment */

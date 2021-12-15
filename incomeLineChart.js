@@ -51,7 +51,7 @@ d3.csv("incomeFishmeal.csv").then(data => {
         .attr("d", line2)
         .attr("transform", `translate(${width2 * .025})`)
         .style("fill", "none")
-        .style("stroke", "whitesmoke")
+        .style("stroke", "red")
         .style("stroke-width", "2");
 
     var line3 = d3.line()
