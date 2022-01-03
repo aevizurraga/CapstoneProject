@@ -7,7 +7,7 @@ const svg1 = d3.select('#map2').append('svg').attr('width', widthC).attr('height
 
 
 
-d3.json('peru_distrital_simple.geojson')
+d3.json('peruDistrital.geojson')
   .then(data => {
 
     const g1 = svg1.append('g');

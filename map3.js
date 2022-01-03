@@ -9,7 +9,7 @@ const path2 = d3.geoPath(projection2);
 
 const g2 = svg2.append('g');
 
-d3.json('countries_fishmeal.geojson')
+d3.json('countriesFishmeal.geojson')
   .then(data => {
 
     g2.selectAll('path')

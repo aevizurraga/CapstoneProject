@@ -1,7 +1,7 @@
 let height7 = window.innerHeight * .4;
 let width7 = window.innerWidth * .45
 
-d3.csv("dhc_ihc.csv").then(function (data) {
+d3.csv("dhcIhc.csv").then(function (data) {
 
     svg7 = d3
         .select("#stackedBarChart")
