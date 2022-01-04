@@ -5,16 +5,13 @@ firstMap = L.map("first-map", {
   scrollWheelZoom: false
 });
 
-tileLayer2 =
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 18,
-  });
+tileLayer2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 18,
+});
 
 tileLayer2.addTo(firstMap);
-
-
 
 firstMap.setView([38.01624, -3.38281], 2);
 
@@ -51,7 +48,7 @@ $.getJSON("worldMerged.geojson", function (data) {
   var line;
 
   line = L.polyline(exports, {
-    color: '#fc9272',
+    color: 'whitesmoke',
     weight: 2,
     smoothfactor: 0,
     snakingSpeed: 700,
@@ -61,7 +58,7 @@ $.getJSON("worldMerged.geojson", function (data) {
   let btn = document.createElement("button");
   btn.innerHTML = "Click Here to Begin";
   $("#button").html(btn);
-  $("#info").html("The negative impact of the fishmeal industry is not only felt in Peru or Chimbote. As shown in the map to the left, Peru exports fishmeal to all parts of the world. The map displays the top fishmeal partners of Peru. The top trading partners of Peru are located in Asia. Their partners include Japan, Thailand, the Philippines, and Malaysia. However, their top trading partner is China. In 2021, it is estimated that Peru will export about 780,000 metric tons of fishmeal to China. China is the world’s largest importer of fishmeal. This is mostly due to their increased production of certain species of fish such as carp and tilapia, consumers of fishmeal.");
+  $("#info").html("The negative impact of the fishmeal industry is not only felt in Peru or Chimbote but globally, as shown in the map to the left. The map displays the top fishmeal partners of Peru. The top trading partners of Peru are located in Asia, including Japan, Thailand, the Philippines, Malaysia and their top partner, China. In 2021, it is estimated that Peru will have exported about 780,000 metric tons of fishmeal to China, who is the world’s largest importer of fishmeal. This is mostly due to their increased production of certain species of fish such as carp and tilapia, mass consumers of fishmeal.");
   $("#glosses2").html("");
 
   function getColor(d) {
@@ -73,8 +70,6 @@ $.getJSON("worldMerged.geojson", function (data) {
               d > 0 ? '#fc9272' :
                 'black';
   };
-
-
 
   btn.addEventListener('click', function onClick(e) {
 

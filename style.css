@@ -30,14 +30,17 @@ body {
     background: rgb(43, 43, 43);
     border-radius: .4rem;
     color: whitesmoke;
-    font-size: 1rem;
+    font-size: .9rem;
     font-family: 'Nunito', sans-serif;
     padding: .5rem;
     text-align: center;
 }
 
+.sectionBackground {
+    background-color: rgb(38,38,38);
+}
+
 section {
-    display: flex;
     width: 100%;
     height: 100vh;
     scroll-snap-align: center;
@@ -45,14 +48,17 @@ section {
 
 h3 {
     font-family: 'Nunito', sans-serif; 
-    line-height: 1.6;
+    color: rgb(38, 38, 38);
+    font-size: .9rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 h4 {
     font-family: 'Nunito', sans-serif; 
-    line-height: 2;
-    font-size: 1rem;
-    color: rgb(43, 43, 43);
+    color: rgb(38, 38, 38);
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 h5 {
@@ -62,14 +68,23 @@ h5 {
     color: whitesmoke;
 }
 
-.title-font {
-    text-align: center; 
-    position:relative; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    font-family: 'Nunito', sans-serif; 
-    font-size: 1.1rem;
-}
+.title{
+    grid-area: title;
+    background-color: #bc6329 
+    }
+    
+.empty{
+    grid-area: empty;
+    }
+    
+.title-page {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+    " title title "
+    " empty empty ";
+    }
 
 /* Intro Paragraph */
 .writing-description {
@@ -88,13 +103,13 @@ h5 {
 }
 
 /* Maps of Peru and Chimbote */
-.perumap-title {
+.peruTitle {
     grid-area: title1;
     place-self: center;
 }
 .perumap {
     grid-area: map1;
-    place-self: center;
+    place-self: end;
 }
 .peru_desc{
     grid-area: peru_desc;
@@ -104,17 +119,17 @@ h5 {
 .Peru_Map {
     display: grid;
     grid-template-columns: 5% 65% 5% 20% 5%;
-    grid-template-rows: 5% 5%  85% 5%;
+    grid-template-rows: 5% 10% 80% 5%;
     grid-template-areas: 
     " . . . . . "
-    " . map1 title1 title1 . "
+    " . map1 . title1 . "
     " . map1 . peru_desc . "
-    " . . . . ."
+    " . map1 . . ."
     ;
 }
 
-.chimbotePicture {
-    grid-area: picture;
+.chimboteTitle {
+    grid-area: chimboteTitle;
     place-self: center;
 }
 .chimbotemap {
@@ -128,34 +143,48 @@ h5 {
 .Chimbote_Map {
     display: grid;
     grid-template-columns: 5% 35% 5% 50% 5%;
-    grid-template-rows: 5% 50% 40% 5%;
+    grid-template-rows: 5% 10% 80% 5%;
     grid-template-areas: 
     " . . . . . "
-    " . chimboteDesc . map2  . "
+    " . chimboteTitle . map2  . "
     " . chimboteDesc . map2  . "
     " . . . . ."
     ;
 }
 
+.yAxisLabel {
+    font-family: 'Nunito', sans-serif;
+}
+
 .barChartExports {
     grid-area: barChartExports;
+    place-self: start;
+}
+
+.fishmealMapExportsTitle {
+    grid-area: titleExports;
+    place-self: center;
+}
+
+.barChartExportsTitle {
+    grid-area: titleBarChart;
     place-self: center;
 }
 .fishmeal_map {
     grid-area: map3;
-    place-self: center;
+    place-self: end;
 }
 .fishmeal_desc{
     grid-area: fishmeal_desc;
-    place-self: center;
-
+    place-self: end;
 }
 .Production_Map {
     display: grid;
     grid-template-columns: 5% 50% 5% 35% 5%;
-    grid-template-rows: 5% 45% 5% 40% 5%;
+    grid-template-rows: 5% 10% 45% 10% 25% 5%;
     grid-template-areas: 
     " . . . . . "
+    " . titleExports . titleBarChart . "
     " . map3 . barChartExports . "
     " . map3 . . . "
     " . map3 . fishmeal_desc ."
@@ -177,6 +206,7 @@ button {
     font-family: 'Nunito', sans-serif; 
     line-height: 1.5;
     font-size: .9rem;
+    font-weight: bold;
     color: whitesmoke;
   }
 
@@ -186,7 +216,7 @@ button {
 
 .gloss2 {
     grid-area: gloss2;
-    text-align: justify;
+    place-self: center;
     font-size: .9rem;
     color: whitesmoke;
     font-family: 'Nunito', sans-serif; 
@@ -201,25 +231,25 @@ button {
   }
 .info{
     grid-area: info;
+    place-self: center;
     font-size: .9rem;
     color: whitesmoke;
     font-family: 'Nunito', sans-serif; 
 
 }
 .second-page{
-    
     display: grid;
     height: 100vh;
     width: 100%;
     grid-template-columns: 5% 15% 5% 25% 45% 5%;
-    grid-template-rows: 5% 5% 50% 10% 25% 5%;
+    grid-template-rows: 5% 50% 10% 10% 20% 5%;
     grid-template-areas: 
-    " button button button button .   . "
-    " button button button button .   ."
-    " .      info   .      map    map . "
-    " .      info   .      map    map ."
-    " .      gloss2      .      map      map   . "
-    " .      .      .      .      .   . ";
+    " button button button button .      ."
+    " .      info   .      map    map    . "
+    " .      info   .      map    map    ."
+    " .      info   .      map    map    . "
+    " .      info   gloss2 gloss2 gloss2 . "
+    " .      .      gloss2 gloss2 gloss2 . ";
   }
 
 .leaflet-container {
@@ -301,28 +331,55 @@ button {
 /*Wildlife Impact*/
 .wildlifeWriting {
     grid-area: wildlifeWriting;
-
+    place-items: justify;
 }
 
-.wildlifeImage {
-    grid-area: wildlifeImage;
+.donutChartFont {
+    font-size: .9rem;
+    font-family: 'Nunito', sans-serif;
+    overflow-wrap: normal;
+}
+
+.donutChart1 {
+    grid-area: donut1;
+    place-self: center;
+}
+
+.donutChart2 {
+    grid-area: donut2;
+    place-self: center;
+}
+
+.donutChart3 {
+    grid-area: donut3;
+    place-self: center;
+}
+
+.donutChartTitle {
+    grid-area: title;
     place-self: center;
 }
 
 .wildlife {
     display: grid;
-    grid-template-columns: 5% 70% 5% 15% 5%;
-    grid-template-rows: 5% 65% 5% 20% 5%;
+    grid-template-columns: 7.5% 25% 5% 25% 5% 25% 7.5%;
+    grid-template-rows: 5% 40% 10% 40% 5%;
     grid-template-areas: 
-    " . .               .               .               . "
-    " . wildlifeWriting wildlifeWriting wildlifeWriting . "
-    " . wildlifeWriting wildlifeWriting wildlifeWriting . "
-    " . .               .               .               . "
-    " . .               .               .               . "
+    " . .               .               .               .               .               . "
+    " . wildlifeWriting wildlifeWriting wildlifeWriting wildlifeWriting wildlifeWriting . "
+    " . .               title               title               title               .               . "
+    " . donut1          .               donut2          .               donut3          . "
+    " . .               .               .               .               .               . "
     ;
 }
 
 /* Employment */
+
+.circleChartTitle {
+    grid-area: circleChartTitle;
+    place-self: center;
+}
+
 .circleChart {
     grid-area: circleChart;
     place-self: center;
@@ -346,7 +403,7 @@ button {
     grid-template-areas: 
     " . . . . . "
     " . incomeLineGraph . employmentVizInfo . "
-    " . . . . . "
+    " . circleChartTitle circleChartTitle circleChartTitle . "
     " . circleChart circleChart circleChart . "
     " . . . . . ";
   }
@@ -375,8 +432,6 @@ button {
     ;
 }
 
-
-
 .data-info {
     grid-area: data;
     place-self: left;
@@ -390,14 +445,14 @@ button {
 
 .last-div {
     display: grid;
-    grid-template-columns: 5% 45% 45% 5%;
-    grid-template-rows: 60% 40%;
+    grid-template-columns: 5% 42.5% 5% 42.5% 5%;
+    grid-template-rows: 5% 90% 5%;
     grid-template-areas: 
-        " . . . . "
-        " . data references . ";
+        " . . . . . "
+        " . references . data . ";
     align-items: center;
 }
 
 section#data-ref {
-    background-image: linear-gradient(rgb(43, 43, 43) 60%, rgb(214, 211, 211) 40%);
+    background-image: linear-gradient(to right, rgb(38, 38, 38) 50%, #bc6329 50%);
 }

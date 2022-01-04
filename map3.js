@@ -1,6 +1,7 @@
 widthMap3 = window.innerWidth * .5;
+heightMap3 = window.innerHeight * .8
 
-const svg2 = d3.select('#map3').append('svg').attr('width', widthMap3).attr('height', height1).attr("fill", "red");
+const svg2 = d3.select('#map3').append('svg').attr('width', widthMap3).attr('height', heightMap3).attr("fill", "red");
 
 const projection2 = d3.geoMercator().scale(150)
   .translate([widthMap3 / 2, height1 / 1.8]);

@@ -18,13 +18,13 @@ d3.csv("fishMeal.csv").then(data => {
     var xscale1 = d3
         .scaleBand()
         .domain(data.map(function (d) { return d.Year; }))
-        .range([width8 * .08, width8 * .90])
+        .range([width8 * .1, width8 * .90])
         .padding(.7);
 
     var yscale1 = d3
         .scaleLinear()
         .domain([2500, 0])
-        .range([height8 * .1, height8 * .9]);
+        .range([0, height8 * .8]);
 
     var tool = d3.select("body").append("div").attr("class", "toolTip");
 
@@ -34,7 +34,7 @@ d3.csv("fishMeal.csv").then(data => {
         .append("rect")
         .attr("x", function (d) { return xscale1(d.Year) })
         .attr("y", function (d) { return yscale1(d.Exports) })
-        .attr("height", function (d, i) { return (height8 * .9) - yscale1(d.Exports); })
+        .attr("height", function (d, i) { return (height8 * .8) - yscale1(d.Exports); })
         .attr("width", "8")
         .style("fill", function (d) { return colorbarchart1(+d.Exports); })
         .style("stroke", "white")
@@ -51,21 +51,22 @@ d3.csv("fishMeal.csv").then(data => {
     var xaxis1 = svg9
         .append("g")
         .call(d3.axisBottom(xscale1).tickValues(["1965", "1970", "1975", "1980", "1985", "1990", "1995", "2000", "2005", "2010", "2015", "2020"]))
-        .attr("transform", `translate(0, ${height8 * .9})`)
+        .attr("transform", `translate(0, ${height8 * .8})`)
         .style("color", "whitesmoke")
         .style("font-size", ".6vw")
 
     var yaxis1 = svg9
         .append("g")
         .call(d3.axisLeft(yscale1))
-        .attr("transform", `translate(${width8 * .08})`)
+        .attr("transform", `translate(${width8 * .1})`)
         .style("color", "whitesmoke")
         .style("font-size", ".6vw")
 
     svg9
         .append("text")
         .attr("y", "50%")
-        .attr("dx", ".2em")
+        .attr("dx", "1em")
+        .attr("class", "yAxisLabel")
         .style("fill", "whitesmoke")
         .style("font-size", ".7vw")
         .attr("writing-mode", "vertical-lr")

@@ -23,7 +23,7 @@ d3.csv("dhcIhc.csv").then(function (data) {
 
     var y = d3.scaleLinear()
         .domain([0, 1])
-        .range([height7 - (height7 * .1), height7 * .1]);
+        .range([height7 - (height7 * .1), height7 * .3]);
     svg7.append("g")
         .attr("transform", `translate(${width7 * .1})`)
         .call(d3.axisLeft(y));
@@ -54,6 +54,48 @@ d3.csv("dhcIhc.csv").then(function (data) {
         .attr("height", d => y(d[0]) - y(d[1]))
         .attr("width", x.bandwidth())
 
+    //Title//
+
+    svg7.append("text")
+        .attr("x", (width7 * .1))
+        .attr("y", height7 * .12)
+        .text("Anchvovies Caught")
+        .style("font-size", "1em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+
+    //Legend Items//
+
+    svg7.append("circle")
+        .attr("cx", (width7 * .7))
+        .attr("cy", height7 * .2)
+        .attr("r", 6)
+        .style("fill", "whitesmoke")
+
+    svg7.append("text")
+        .attr("x", (width7 * .72))
+        .attr("y", height7 * .2)
+        .text("Anchovies used for DHC")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
+    svg7.append("circle")
+        .attr("cx", (width7 * .1))
+        .attr("cy", height7 * .2)
+        .attr("r", 6)
+        .style("fill", "#bc6329")
+
+    svg7.append("text")
+        .attr("x", (width7 * .12))
+        .attr("y", height7 * .2)
+        .text("Anchovies used for IHC")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
 })
 
 d3.csv("malnourishmentPeruNorway.csv").then(data => {
@@ -75,7 +117,7 @@ d3.csv("malnourishmentPeruNorway.csv").then(data => {
     // Add Y axis
     let y = d3.scaleLinear()
         .domain([0, 18])
-        .range([height7 - (height7 * .1), height7 * .1]);
+        .range([height7 - (height7 * .1), height7 * .3]);
     svg8.append("g")
         .attr("transform", `translate(${width7 * .1})`)
         .call(d3.axisLeft(y));
@@ -122,47 +164,64 @@ d3.csv("malnourishmentPeruNorway.csv").then(data => {
         .style("stroke", "red")
         .style("stroke-width", "2");
 
-    svg8.append("circle")
-        .attr("cx", (width7 - (width7 * .4)))
-        .attr("cy", height7 * .12)
-        .attr("r", 6)
-        .style("fill", "#bc6329")
+    //Title//
+
+    svg8.append("text")
+        .attr("x", (width7 * .1))
+        .attr("y", height7 * .12)
+        .text("Firshmeal Exports and Undernourished Rates")
+        .style("font-size", "1em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+
+    //Legend Items//
 
     svg8.append("circle")
         .attr("cx", (width7 - (width7 * .4)))
         .attr("cy", height7 * .2)
         .attr("r", 6)
-        .style("fill", "red")
-
-    svg8.append("circle")
-        .attr("cx", (width7 - (width7 * .4)))
-        .attr("cy", height7 * .04)
-        .attr("r", 6)
         .style("fill", "whitesmoke")
-
-    svg8.append("text")
-        .attr("x", (width7 - (width7 * .36)))
-        .attr("y", height7 * .12)
-        .text("Undernourished Population (%) - Peru")
-        .style("font-size", ".7em")
-        .style("fill", "whitesmoke")
-        .attr("alignment-baseline", "middle")
 
     svg8.append("text")
         .attr("x", (width7 - (width7 * .36)))
         .attr("y", height7 * .2)
-        .text("Undernourished Population (%) - Norway")
-        .style("font-size", ".7em")
-        .style("fill", "whitesmoke")
-        .attr("alignment-baseline", "middle")
-
-    svg8.append("text")
-        .attr("x", (width7 - (width7 * .36)))
-        .attr("y", height7 * .04)
         .text("Fishmeal Exports (in hundreds)")
         .style("font-size", ".7em")
         .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
         .attr("alignment-baseline", "middle")
+
+    svg8.append("circle")
+        .attr("cx", (width7 - (width7 * .4)))
+        .attr("cy", height7 * .28)
+        .attr("r", 6)
+        .style("fill", "#bc6329")
+
+    svg8.append("text")
+        .attr("x", (width7 - (width7 * .36)))
+        .attr("y", height7 * .28)
+        .text("Undernourished Population (%) - Peru")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
+    svg8.append("circle")
+        .attr("cx", (width7 - (width7 * .4)))
+        .attr("cy", height7 * .36)
+        .attr("r", 6)
+        .style("fill", "red")
+
+    svg8.append("text")
+        .attr("x", (width7 - (width7 * .36)))
+        .attr("y", height7 * .36)
+        .text("Undernourished Population (%) - Norway")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
+
 
 
 

@@ -1,5 +1,5 @@
 const width1 = window.innerWidth * .65;
-const height1 = window.innerHeight * .9;
+const height1 = window.innerHeight * .8;
 
 const svg = d3.select('#map1').append('svg').attr('width', width1).attr('height', height1);
 

@@ -1,4 +1,4 @@
-let height4 = window.innerHeight * .7;
+let height4 = window.innerHeight * .5;
 
 d3.csv("incomeFishmeal.csv").then(data => {
     console.log(data);
@@ -19,7 +19,7 @@ d3.csv("incomeFishmeal.csv").then(data => {
     // Add Y axis
     let y = d3.scaleLinear()
         .domain([0, 1800])
-        .range([height4 - (height4 * .1), height4 * .1]);
+        .range([height4 - (height4 * .1), height4 * .2]);
     svg6.append("g")
         .attr("transform", `translate(${width2 * .1})`)
         .call(d3.axisLeft(y));
@@ -37,7 +37,7 @@ d3.csv("incomeFishmeal.csv").then(data => {
         .attr("d", line)
         .attr("transform", `translate(${width2 * .025})`)
         .style("fill", "none")
-        .style("stroke", "whitesmoke")
+        .style("stroke", "#bc6329")
         .style("stroke-width", "2");
 
     var line2 = d3.line()
@@ -65,6 +65,59 @@ d3.csv("incomeFishmeal.csv").then(data => {
         .attr("d", line3)
         .attr("transform", `translate(${width2 * .025})`)
         .style("fill", "none")
-        .style("stroke", "#bc6329")
+        .style("stroke", "whitesmoke")
         .style("stroke-width", "2");
+
+    svg6.append("text")
+        .attr("x", (width7 * .1))
+        .attr("y", height4 * .04)
+        .text("Firshmeal Exports and Income")
+        .style("font-size", "1em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+
+    svg6.append("text")
+        .attr("x", (width2 - (width2 * .3)))
+        .attr("y", height4 * .7)
+        .text("Average Monthly Income - Ancash")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
+    svg6.append("text")
+        .attr("x", (width2 - (width2 * .3)))
+        .attr("y", height4 * .8)
+        .text("Average Monthly Income - Peru")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
+    svg6.append("text")
+        .attr("x", (width2 - (width2 * .3)))
+        .attr("y", height4 * .6)
+        .text("Fishmeal Exports (in hundreds)")
+        .style("font-size", ".7em")
+        .style("fill", "whitesmoke")
+        .attr("class", "donutChartFont")
+        .attr("alignment-baseline", "middle")
+
+    svg6.append("circle")
+        .attr("cx", (width2 - (width2 * .32)))
+        .attr("cy", height4 * .7)
+        .attr("r", 6)
+        .style("fill", "#bc6329")
+
+    svg6.append("circle")
+        .attr("cx", (width2 - (width2 * .32)))
+        .attr("cy", height4 * .8)
+        .attr("r", 6)
+        .style("fill", "red")
+
+    svg6.append("circle")
+        .attr("cx", (width2 - (width2 * .32)))
+        .attr("cy", height4 * .6)
+        .attr("r", 6)
+        .style("fill", "whitesmoke")
 })

@@ -10,7 +10,8 @@ svg3.append('rect')
   .attr('width', width2)
   .attr('height', height2)
   .attr('stroke', 'whitesmoke')
-  .attr('fill', '#cc5000');
+  .attr('fill', '#cc5000')
+  .attr('opacity', .7);
 
 svg3.append('rect')
   .attr('x', 0)
@@ -18,6 +19,25 @@ svg3.append('rect')
   .attr('width', width2 / 3)
   .attr('height', height2 / 3)
   .attr("transform", `translate(${width2 / 3}, ${height2 / 3})`)
-  .attr('stroke', 'rgb(43, 43, 43)')
-  .attr('fill', '#bc6329');
+  .attr('stroke', 'whitesmoke')
+  .attr('fill', '#bc6329')
+
+svg3.append("text")
+  .attr("x", "50%")
+  .attr("y", (height2 / 3) / 2)
+  .text("Water Needed to Transport to Factory")
+  .style("font-size", "1em")
+  .style("fill", "whitesmoke")
+  .attr("class", "donutChartFont")
+  .style("text-anchor", "middle")
+
+svg3.append("text")
+  .attr("x", "50%")
+  .attr("y", (height2 / 3) * 1.5)
+  .text("Anchovies")
+  .style("font-size", "1em")
+  .style("fill", "whitesmoke")
+  .attr("class", "donutChartFont")
+  .style("text-anchor", "middle")
+
 
