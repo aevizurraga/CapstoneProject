@@ -42,6 +42,16 @@ d3.csv("fishMeal.csv").then(data => {
 
     var tool = d3.select("body").append("div").attr("class", "toolTip");
 
+    svg3
+        .append("text")
+        .attr("dy", height3 * .7)
+        .attr("x", "50%")
+        .attr("class", "yAxisLabel")
+        .style("fill", "whitesmoke")
+        .style("font-size", ".8vw")
+        .style("text-anchor", "middle")
+        .text("Year")
+
     var circle1 = svg3.selectAll("circle1")
         .data(data)
         .enter()

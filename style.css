@@ -30,7 +30,7 @@ body {
     background: rgb(43, 43, 43);
     border-radius: .4rem;
     color: whitesmoke;
-    font-size: .9rem;
+    font-size: .8rem;
     font-family: 'Nunito', sans-serif;
     padding: .5rem;
     text-align: center;
@@ -75,6 +75,7 @@ h5 {
     
 .empty{
     grid-area: empty;
+    overflow: hidden;
     }
     
 .title-page {
@@ -176,59 +177,27 @@ h5 {
 }
 .fishmeal_desc{
     grid-area: fishmeal_desc;
-    place-self: end;
+    place-self: center;
+    overflow: hidden;
 }
 .Production_Map {
     display: grid;
     grid-template-columns: 5% 50% 5% 35% 5%;
-    grid-template-rows: 5% 10% 45% 10% 25% 5%;
+    grid-template-rows: 10% 65% 25%;
     grid-template-areas: 
-    " . . . . . "
     " . titleExports . titleBarChart . "
     " . map3 . barChartExports . "
-    " . map3 . . . "
-    " . map3 . fishmeal_desc ."
-    " . . . . . "
+    " . fishmeal_desc fishmeal_desc fishmeal_desc . "
     ;
 }
 
 
 /* Exports Leafelt Map */
 
-button {
-    height: 100%;
-    width: 100%;
-    border: none;
-    background-color: rgb(38, 38, 38);
-    color: whitesmoke;
-    opacity: 1;
-    text-align: center;
-    font-family: 'Nunito', sans-serif; 
-    line-height: 1.5;
-    font-size: .9rem;
-    font-weight: bold;
-    color: whitesmoke;
-  }
-
-  button:not(.no-hover):hover {
-      background-color: rgb(38, 38, 38)
-  }
-
-.gloss2 {
-    grid-area: gloss2;
-    place-self: center;
-    font-size: .9rem;
-    color: whitesmoke;
-    font-family: 'Nunito', sans-serif; 
-  }
-
-.map {
+.firstLeafletMap {
     grid-area: map;
 }
-.button {
-    grid-area: button;
-    place-self: center;
-  }
+
 .info{
     grid-area: info;
     place-self: center;
@@ -237,24 +206,95 @@ button {
     font-family: 'Nunito', sans-serif; 
 
 }
-.second-page{
+.firstMap{
     display: grid;
+    background-image: linear-gradient(to right, #bc6329 0% 50%, rgba(38,38,38,0) 50% 100%);
     height: 100vh;
     width: 100%;
     grid-template-columns: 5% 15% 5% 25% 45% 5%;
     grid-template-rows: 5% 50% 10% 10% 20% 5%;
     grid-template-areas: 
-    " button button button button .      ."
+    " .      .      .      .      .      ."
     " .      info   .      map    map    . "
     " .      info   .      map    map    ."
     " .      info   .      map    map    . "
-    " .      info   gloss2 gloss2 gloss2 . "
-    " .      .      gloss2 gloss2 gloss2 . ";
+    " .      info   .      map    map    . "
+    " .      .      .      .      .      . ";
   }
 
 .leaflet-container {
-    background: rgb(43, 43, 43)
+    background: rgb(38, 38, 38)
 }
+
+button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: #bc6329;
+    color: rgb(38, 38, 38);
+    opacity: 1;
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Oswald', sans-serif;
+    }
+    
+button:not(.no-hover):hover {
+    background: #bc6329;
+    color: whitesmoke;
+    }
+    
+.button {
+    grid-area: button;
+    place-self: center;
+    }
+    
+.gloss2 {
+    grid-area: gloss2;
+    place-self: center;
+    font-size: 1em;
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif; 
+    }
+    
+.secondLeafletMap {
+    grid-area: map2;
+    place-self: center;
+    height: 80vh;
+    }
+    
+.info2 {
+    grid-area: info2;
+    place-self: center;
+    font-size: .9em;
+    color: whitesmoke;
+    font-family: 'Nunito', sans-serif; 
+    }
+    
+
+section#Fishmeal_Export_Map2 {
+    background-image: linear-gradient(to right, #bc6329 0% 50%, rgba(38,38,38,0) 50% 100%);
+}
+
+section#Choose_Path {
+    background-image: linear-gradient(#bc6329 0% 50%, rgb(38, 38, 38) 50% 100%);
+}
+
+.secondMap{
+    display: grid;
+    background-image: linear-gradient(rgba(38,38,38,0) 0% 50%, #bc6329 50% 100%);
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: 5% 15% 5% 25% 45% 5%;
+    grid-template-rows: 5% 5% 50% 20% 15% 5%;
+    grid-template-areas: 
+" button button button button .   . "
+" button button button button .   ."
+" .      info2  .      map2    map2 . "
+" .      info2  .      map2    map2 ."
+" .      .      .      gloss2      gloss2   . "
+" .      .      .      gloss2      gloss2   . ";
+    }
 
 /* Malnourishment*/ 
 

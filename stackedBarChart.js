@@ -96,6 +96,16 @@ d3.csv("dhcIhc.csv").then(function (data) {
         .attr("class", "donutChartFont")
         .attr("alignment-baseline", "middle")
 
+    svg7
+        .append("text")
+        .attr("dy", height7)
+        .attr("x", "50%")
+        .attr("class", "yAxisLabel")
+        .style("fill", "whitesmoke")
+        .style("font-size", ".7vw")
+        .style("text-anchor", "middle")
+        .text("Year")
+
 })
 
 d3.csv("malnourishmentPeruNorway.csv").then(data => {
@@ -185,7 +195,7 @@ d3.csv("malnourishmentPeruNorway.csv").then(data => {
     svg8.append("text")
         .attr("x", (width7 - (width7 * .36)))
         .attr("y", height7 * .2)
-        .text("Fishmeal Exports (in hundreds)")
+        .text("Fishmeal Exports (X 100,000)")
         .style("font-size", ".7em")
         .style("fill", "whitesmoke")
         .attr("class", "donutChartFont")
@@ -220,6 +230,16 @@ d3.csv("malnourishmentPeruNorway.csv").then(data => {
         .style("fill", "whitesmoke")
         .attr("class", "donutChartFont")
         .attr("alignment-baseline", "middle")
+
+    svg8
+        .append("text")
+        .attr("dy", height7)
+        .attr("x", "50%")
+        .attr("class", "yAxisLabel")
+        .style("fill", "whitesmoke")
+        .style("font-size", ".7vw")
+        .style("text-anchor", "middle")
+        .text("Year")
 
 
 

@@ -1,5 +1,5 @@
-const width8 = (innerWidth * .35),
-    height8 = (innerHeight * .45);
+const width8 = (innerWidth * .4),
+    height8 = (innerHeight * .6);
 
 var svg9 = d3
     .select("#bar-1")
@@ -64,7 +64,7 @@ d3.csv("fishMeal.csv").then(data => {
 
     svg9
         .append("text")
-        .attr("y", "50%")
+        .attr("y", (height8 * .8) / 2)
         .attr("dx", "1em")
         .attr("class", "yAxisLabel")
         .style("fill", "whitesmoke")
@@ -72,6 +72,16 @@ d3.csv("fishMeal.csv").then(data => {
         .attr("writing-mode", "vertical-lr")
         .style("text-anchor", "middle")
         .text("Fishmeal Exported (Per 1000 Metric Tons)")
+
+    svg9
+        .append("text")
+        .attr("dy", height8 * .9)
+        .attr("x", "50%")
+        .attr("class", "yAxisLabel")
+        .style("fill", "whitesmoke")
+        .style("font-size", ".7vw")
+        .style("text-anchor", "middle")
+        .text("Year")
 
 
 
