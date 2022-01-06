@@ -23,7 +23,7 @@ d3.json('peruDistrital.geojson')
       })
       .attr("fill", d => {
         if (d.properties.NOMBDIST == "CHIMBOTE") return "#bc6329";
-        else return "rgb(43,43,43)";
+        else return "rgb(38,38,38)";
       });
 
 

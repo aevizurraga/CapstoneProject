@@ -17,8 +17,6 @@ tileLayer2.addTo(secondMap);
 
 secondMap.setView([38.01624, -3.38281], 2);
 
-$("#info").html("Fishmeal is a product made from anchovies. It is primarily used for feeding farm animals and other species of fish. Peru is the leading exporter of fishmeal.  <br> <br> Click on Peru to show their top fishmeal export partners")
-
 $.getJSON("world.geojson", function (data) {
 
     var exports = [[[-9.189967, -75.015152], [-25.274398, 133.775136]],
@@ -82,7 +80,7 @@ $.getJSON("world.geojson", function (data) {
 
         btn.innerHTML = ""
 
-        $("#info2").html("The main importers of fishmeal from Peru, in terms of quantity, is China. In 2021, it is estimated they will import a total of 780,779 metric tons of fishmeal. Overall, China is the main importer of fishmeal in the world. For the year 2020, China imported about 1.5 million metric of fishmeal. This is due to the large quantities of fish that are raised to be sold, such as carp and tilapia. <br><br> Please hover over each highlighted country to see how much  fishmeal they imported from Peru. You can click on any highlighted country to zoom in. You may click on the button on the upper left of the map to zoom out.")
+        $("#info2").html("The main importer of fishmeal from Peru, in terms of quantity, is China. In 2021, it is estimated they will import a total of 780,779 metric tons of fishmeal. Overall, China is the main importer of fishmeal in the world. For the year 2020, China imported about 1.5 million metric of fishmeal.[5] This is due to the large quantities of fish that are raised to be sold, such as carp and tilapia. <br><br> Please hover over each highlighted country to see how much  fishmeal they imported from Peru. You can click on any highlighted country to zoom in. You may click on the button on the upper left of the map to zoom out.")
 
         geojson2 = L.geoJSON(data, {
             onEachFeature: colorlayer,
@@ -102,35 +100,41 @@ $.getJSON("world.geojson", function (data) {
 
     function colorlayer(feature, layer) {
 
-        let pop = `${feature.properties.ADMIN} imported ${Number(feature.properties.exports)} metric tons of fishmeal imported from Peru.`;
 
-        layer.on('click', function zoomToFeature(e) {
-            secondMap.fitBounds(layer.getBounds());
-        })
-        layer.on('mouseover', function (e) {
-            if (feature.properties.ADMIN != 'Peru') {
+
+        if (feature.properties.ADMIN != 'Peru' && feature.properties.exports > 0) {
+
+            let pop = `${feature.properties.ADMIN} imported ${Number(feature.properties.exports)} metric tons of fishmeal imported from Peru.`;
+
+            layer.on('click', function zoomToFeature(e) {
+                secondMap.fitBounds(layer.getBounds());
+            })
+
+            layer.on('mouseover', function (e) {
+
                 $("#glosses2").html(`${pop}`)
-            }
 
-            layer.setStyle({
-                fillColor: 'whitesmoke',
-                weight: 1,
-                opacity: 1,
-                color: 'whitesmoke',
-                fillOpacity: 1
+                layer.setStyle({
+                    fillColor: 'whitesmoke',
+                    weight: 1,
+                    opacity: 1,
+                    color: 'whitesmoke',
+                    fillOpacity: 1
+                });
+            })
+            layer.on('mouseout', function (e) {
+                $("#glosses2").html("")
+                this.closePopup();
+                layer.setStyle({
+                    fillColor: getColor(feature.properties.exports),
+                    weight: .5,
+                    opacity: 1,
+                    color: 'black',
+                    fillOpacity: 1
+                });
             });
-        })
-        layer.on('mouseout', function (e) {
-            $("#glosses2").html("")
-            this.closePopup();
-            layer.setStyle({
-                fillColor: getColor(feature.properties.exports),
-                weight: .5,
-                opacity: 1,
-                color: 'black',
-                fillOpacity: 1
-            });
-        });
+        }
+
     }
 
 });

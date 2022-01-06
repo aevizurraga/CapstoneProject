@@ -3,7 +3,7 @@ heightMap3 = window.innerHeight * .6
 
 const svg2 = d3.select('#map3').append('svg').attr('width', widthMap3).attr('height', heightMap3).attr("fill", "red");
 
-const projection2 = d3.geoMercator().scale(150).center([4.9, -1.76]).translate([widthMap3 / 2, height1 / 2]);
+const projection2 = d3.geoMercator().scale(150).center([4.9, -1.76]).translate([widthMap3 / 2, heightMap3 / 2]);
 
 const path2 = d3.geoPath(projection2);
 
@@ -19,7 +19,7 @@ d3.json('countriesFishmeal.geojson')
       .attr('d', path2)
       .attr('stroke', "white")
       .attr('stroke-width', ".025em")
-      .attr("fill", "rgb(43,43,43)");
+      .attr("fill", "rgb(38,38,38)");
 
     svg2.selectAll(".dots")
       .data(data.features)

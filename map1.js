@@ -1,9 +1,9 @@
 const width1 = window.innerWidth * .65;
-const height1 = window.innerHeight * .8;
+const height1 = window.innerHeight * .9;
 
 const svg = d3.select('#map1').append('svg').attr('width', width1).attr('height', height1);
 
-const projection = d3.geoMercator().scale(200)
+const projection = d3.geoMercator().scale(200).center([4.9, -20.76])
   .translate([width1 / 2, height1 / 1.8]);
 
 const path = d3.geoPath(projection);
@@ -25,7 +25,7 @@ d3.json('world.geojson')
       })
       .attr("fill", d => {
         if (d.properties.ADMIN == "Peru") return "#bc6329";
-        else return "rgb(43,43,43)";
+        else return "rgb(38,38,38)";
       });
 
 

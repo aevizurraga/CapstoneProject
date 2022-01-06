@@ -13,15 +13,15 @@ tileLayer1 = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x
   noWrap: true,
 });
 
-
 tileLayer1.addTo(firstMap);
-
 
 firstMap.setView([38.01624, -3.38281], 2);
 
+$("#info").html("As the leading exporter of fishmeal, many nations obtain their fishmeal from Peru. <br> <br> Click on Peru to show their top fishmeal export partners")
 
-$("#info").html("Fishmeal is a product made from anchovies. It is primarily used for feeding farm animals and other species of fish. Peru is the leading exporter of fishmeal.  <br> <br> Click on Peru to show their top fishmeal export partners")
-
+L.easyButton('<i class="material-icons">travel_explore</i>', function () {
+  firstMap.setView([38.01624, -3.38281], 2);
+}).addTo(firstMap);
 
 $.getJSON("world.geojson", function (data) {
 
@@ -103,163 +103,12 @@ $.getJSON("world.geojson", function (data) {
 
         line.addTo(firstMap).bringToFront().snakeIn();
 
-        $('#info').html("Peru mainly exports to all parts of the world. This map visualizes their main export partners. They mainly export fishmeal to Asia, especially China and Japan, their leading importers. <br><br> Please scroll down to the next map to visualize the amounts of fishmeal each top partner imports from Peru.")
+        $('#info').html("Peru mainly exports to all parts of the world. This map visualizes their main export partners. They mainly export fishmeal to Asia, especially China and Japan, their leading importers. <br><br> You may double-click on the map to zoom in. Click on the button on the top left side of the map to zoom out. <br><br> Please scroll down to the next map to visualize the amounts of fishmeal each top partner imports from Peru.")
       });
     }
-
-
   }
 });
 
-
-/*
-  function getColor(d) {
-    return d > 780770 ? '#67000d' :
-      d > 20000 ? '#a50f15' :
-        d > 10000 ? '#cb181d' :
-          d > 5000 ? '#ef3b2c' :
-            d > 2000 ? '#fb6a4a' :
-              d > 0 ? '#fc9272' :
-                'black';
-  };
-
-  function style(feature) {
-    return {
-      fillColor: getColor(feature.properties.export),
-      weight: .5,
-      opacity: 1,
-      color: 'whitesmoke',
-      fillOpacity: 1
-    };
-  };
-
-  function style0(feature) {
-    return {
-      fillColor: getColor(feature.properties.export),
-      weight: .5,
-      opacity: 1,
-      color: 'black',
-      fillOpacity: 1
-    };
-  };
-
-  function colorlayer1(feature, layer) {
-
-    layer.bindPopup(feature.properties.ADMIN);
-
-    if (feature.properties.ADMIN == 'Peru') {
-      layer.on('click', function (e) {
-
-        this.openPopup;
-
-        geojson1.remove(firstMap);
-
-        geojson1 = L.geoJson(data, {
-          onEachFeature: colorlayer1,
-          filter: function (feature) {
-            return feature.properties.VAR == "Yes"
-          },
-          weight: .8,
-          color: 'whitesmoke',
-          fillOpacity: .3,
-        }).addTo(firstMap);
-
-        line.addTo(firstMap).bringToFront().snakeIn();
-
-        $('#glosses').html("Peru mainly exports to all parts of the world. This map visualizes their main export partners. They mainly export fishmeal to Asia, especially China and Japan, their leading importers. <br><br> Please scroll down to the next map to visualize the amounts of fishmeal each top partner imports from Peru.")
-      });
-    }
-  }
-
-  function colorlayer(feature, layer) {
-
-    let pop = `${feature.properties.ADMIN} imported ${Number(feature.properties.export)} metric tons of fishmeal imported from Peru.`;
-
-    
-    layer.on('mouseover', function (e) {
-      $("#glosses2").html(`${pop}`)
-      layer.setStyle({
-        fillColor: 'whitesmoke',
-        weight: 1,
-        opacity: 1,
-        color: 'whitesmoke',
-        fillOpacity: 1
-      });
-    })
-    layer.on('mouseout', function (e) {
-      $("#glosses2").html("")
-      this.closePopup();
-      layer.setStyle({
-        fillColor: getColor(feature.properties.export),
-        weight: .5,
-        opacity: 1,
-        color: 'black',
-        fillOpacity: 1
-      });
-    });
-  }
-
-});
-
-
-
-btn.addEventListener('click', function onClick(e) {
-
-      let geojson2;
-
-      $(this).addClass('no-hover');
-
-      btn.innerHTML = ""
-
-      $("#info2").html("The main importers of fishmeal from Peru, in terms of quantity, is China. In 2021, it is estimated they will import a total of 780,779 metric tons of fishmeal. Overall, China is the main importer of fishmeal in the world. For the year 2020, China imported about 1.5 million metric of fishmeal. This is due to the large quantities of fish that are raised to be sold, such as carp and tilapia. <br><br> Please hover over each highlighted country to see how much  fishmeal they imported from Peru. You can click on any highlighted country to zoom in. You may click on the button on the upper left of the map to zoom out.")
-
-      geojson2 = L.geoJSON(data, {
-        onEachFeature: colorlayer,
-        style: style0
-      }).addTo(secondMap).bringToBack();
-    })
-
-    function style0(feature) {
-      return {
-        fillColor: getColor(feature.properties.export),
-        weight: .5,
-        opacity: 1,
-        color: 'black',
-        fillOpacity: 1
-      };
-    };
-
-    function colorlayer(feature, layer) {
-
-      let pop = `${feature.properties.ADMIN} imported ${Number(feature.properties.exports)} metric tons of fishmeal imported from Peru.`;
-
-      layer.on('click', function zoomToFeature(e) {
-        secondMap.fitBounds(layer.getBounds());
-      })
-      layer.on('mouseover', function (e) {
-        $("#glosses2").html(`${pop}`)
-        layer.setStyle({
-          fillColor: 'whitesmoke',
-          weight: 1,
-          opacity: 1,
-          color: 'whitesmoke',
-          fillOpacity: 1
-        });
-      })
-      layer.on('mouseout', function (e) {
-        $("#glosses2").html("")
-        this.closePopup();
-        layer.setStyle({
-          fillColor: getColor(feature.properties.exports),
-          weight: .5,
-          opacity: 1,
-          color: 'black',
-          fillOpacity: 1
-        });
-      });
-    }
-
-    */
 
 
 

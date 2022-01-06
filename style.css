@@ -125,7 +125,7 @@ h5 {
     " . . . . . "
     " . map1 . title1 . "
     " . map1 . peru_desc . "
-    " . map1 . . ."
+    " . . . . ."
     ;
 }
 
@@ -474,13 +474,13 @@ section#Choose_Path {
 
 .data-info {
     grid-area: data;
-    place-self: left;
+    place-self: start;
     justify-items: center;
 }
 
 .references {
     grid-area: references;
-    place-self: left;
+    place-self: start;
 }
 
 .last-div {

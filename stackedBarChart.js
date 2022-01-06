@@ -105,7 +105,6 @@ d3.csv("dhcIhc.csv").then(function (data) {
         .style("font-size", ".7vw")
         .style("text-anchor", "middle")
         .text("Year")
-
 })
 
 d3.csv("malnourishmentPeruNorway.csv").then(data => {
@@ -240,12 +239,4 @@ d3.csv("malnourishmentPeruNorway.csv").then(data => {
         .style("font-size", ".7vw")
         .style("text-anchor", "middle")
         .text("Year")
-
-
-
-
-
-
-
-
 })
