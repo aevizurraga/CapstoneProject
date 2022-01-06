@@ -56,37 +56,43 @@ $.getJSON("world.geojson", function (data) {
         opacity: .8
     })
 
-    let btn = document.createElement("button");
-    btn.innerHTML = "Click Here to Begin";
-    $("#button").html(btn);
-    $("#info2").html("");
     $("#glosses2").html("");
 
     function getColor(d) {
-        return d > 780770 ? '#67000d' :
-            d > 20000 ? '#a50f15' :
-                d > 10000 ? '#cb181d' :
-                    d > 5000 ? '#ef3b2c' :
-                        d > 2000 ? '#fb6a4a' :
-                            d > 0 ? '#fc9272' :
-                                'black';
+        return d > 780770 ? '#532c12' :
+            d > 20000 ? '#7d421b' :
+                d > 5000 ? '#bc6329' :
+                    d > 0 ? '#f4a261' :
+                        'black';
     };
 
-    btn.addEventListener('click', function onClick(e) {
+    var legend = L.control({ position: 'bottomleft' });
 
-        let geojson2;
+    legend.onAdd = function (map) {
 
-        $(this).addClass('no-hover');
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 5000, 20000, 780770],
+            labels = [];
 
-        btn.innerHTML = ""
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+        return div;
+    };
 
-        $("#info2").html("The main importer of fishmeal from Peru, in terms of quantity, is China. In 2021, it is estimated they will import a total of 780,779 metric tons of fishmeal. Overall, China is the main importer of fishmeal in the world. For the year 2020, China imported about 1.5 million metric of fishmeal.[5] This is due to the large quantities of fish that are raised to be sold, such as carp and tilapia. <br><br> Please hover over each highlighted country to see how much  fishmeal they imported from Peru. You can click on any highlighted country to zoom in. You may click on the button on the upper left of the map to zoom out.")
+    legend.addTo(secondMap);
 
-        geojson2 = L.geoJSON(data, {
-            onEachFeature: colorlayer,
-            style: style0
-        }).addTo(secondMap).bringToBack();
-    })
+    let geojson2;
+
+    $("#info2").html("The main importer of fishmeal from Peru, in terms of quantity, is China. In 2021, it is estimated they will import a total of 780,779 metric tons of fishmeal. Overall, China is the main importer of fishmeal in the world. For the year 2020, China imported about 1.5 million metric of fishmeal.[5] This is due to the large quantities of fish that are raised to be sold, such as carp and tilapia. <br><br> Please hover over each highlighted country to see how much  fishmeal they imported from Peru. You can click on any highlighted country to zoom in. You may click on the button on the upper left of the map to zoom out.")
+
+    geojson2 = L.geoJSON(data, {
+        onEachFeature: colorlayer,
+        style: style0
+    }).addTo(secondMap).bringToBack();
 
     function style0(feature) {
         return {
@@ -99,8 +105,6 @@ $.getJSON("world.geojson", function (data) {
     };
 
     function colorlayer(feature, layer) {
-
-
 
         if (feature.properties.ADMIN != 'Peru' && feature.properties.exports > 0) {
 
