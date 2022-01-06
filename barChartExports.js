@@ -1,4 +1,4 @@
-const width8 = (innerWidth * .4),
+const width8 = (innerWidth * .3),
     height8 = (innerHeight * .6);
 
 var svg9 = d3
