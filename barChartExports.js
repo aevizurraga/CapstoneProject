@@ -1,4 +1,4 @@
-const width8 = (innerWidth * .3),
+const width8 = (innerWidth * .4),
     height8 = (innerHeight * .6);
 
 var svg9 = d3
@@ -18,7 +18,7 @@ d3.csv("fishMeal.csv").then(data => {
     var xscale1 = d3
         .scaleBand()
         .domain(data.map(function (d) { return d.Year; }))
-        .range([width8 * .1, width8 * .90])
+        .range([width8 * .1, width8 * .9])
         .padding(.7);
 
     var yscale1 = d3
